@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Managers;
 using UnityEngine;
 
 public class PlayerCharacterController : MonoBehaviour
@@ -9,7 +10,7 @@ public class PlayerCharacterController : MonoBehaviour
     {
         _movementBehaviour = GetComponent<CharacterMovementBehaviour>();
 
-        InputManager.Instance.EventPlayerMovementDirectionChanged += OnPlayerMovementDirectionChanged;
+        InputManager.Instance.eventPlayerMovementDirectionChanged += OnPlayerMovementDirectionChanged;
     }
     // Start is called before the first frame update
     void Start()
@@ -21,7 +22,7 @@ public class PlayerCharacterController : MonoBehaviour
     {
         if (InputManager.TryInstance != null)
         {
-            InputManager.TryInstance.EventPlayerMovementDirectionChanged -= OnPlayerMovementDirectionChanged;
+            InputManager.TryInstance.eventPlayerMovementDirectionChanged -= OnPlayerMovementDirectionChanged;
         }
     }
 

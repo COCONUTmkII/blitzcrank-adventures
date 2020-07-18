@@ -1,25 +1,27 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+using Common;
 using UnityEngine;
 
-public class InputManager : SingletonGameObject<InputManager>
+namespace Managers
 {
-    public Action<Vector3> EventPlayerMovementDirectionChanged;
-    private Vector3 _targetMovementVector = Vector3.zero;
-
-    void Update()
+    public class InputManager : SingletonGameObject<InputManager>
     {
-        var newVelocity = Vector3.zero;
+        public Action<Vector3> eventPlayerMovementDirectionChanged;
+        private Vector3 _targetMovementVector = Vector3.zero;
 
-        var _horizontalMove = Input.GetAxis("Horizontal");
-        var _verticalMove = Input.GetAxis("Vertical");
-        newVelocity += new Vector3(_horizontalMove, 0f, _verticalMove).normalized;
-            
-        if (_targetMovementVector != newVelocity)
+        void Update()
         {
-            _targetMovementVector = newVelocity;
-            EventPlayerMovementDirectionChanged?.Invoke(_targetMovementVector);
+            var newVelocity = Vector3.zero;
+
+            var horizontalMove = Input.GetAxis("Horizontal");
+            var verticalMove = Input.GetAxis("Vertical");
+            newVelocity += new Vector3(horizontalMove, 0f, verticalMove).normalized;
+            
+            if (_targetMovementVector != newVelocity)
+            {
+                _targetMovementVector = newVelocity;
+                eventPlayerMovementDirectionChanged?.Invoke(_targetMovementVector);
+            }
         }
     }
 }
