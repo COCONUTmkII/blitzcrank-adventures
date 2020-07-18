@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace CharacterBehaviours
 {
-    public abstract class Character : MonoBehaviour
+    public abstract class Character
     {
         #region BasicCharacterField
         private bool _isAlive;
@@ -34,6 +34,6 @@ namespace CharacterBehaviours
         /// <summary>
         /// Method which invoked when each character receive damage; 
         /// </summary>
-        public abstract void GetDamage();
+        public abstract void GetDamage(float damage);
     }
 }
