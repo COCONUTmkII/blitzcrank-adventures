@@ -4,6 +4,7 @@ namespace CharacterBehaviours
 {
     public class CharacterMovementBehaviour : MonoBehaviour
     {
+        
         [SerializeField] private float movementSpeed = 15f;
         [SerializeField] private float velocityChangeSpeed = 15f;
         private Vector3 _targetMovementVelocity = Vector3.zero;
