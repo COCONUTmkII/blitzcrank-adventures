@@ -1,13 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+
+#region Project namespace
+using Blitzcrank.Character.Player;
+using Blitzcrank.Manager;
+#endregion
 
 public class PlayerCharacterController : MonoBehaviour
 {
-    private CharacterMovementBehaviour _movementBehaviour = null;
+    private Player _movementBehaviour = null;
     void Awake()
     {
-        _movementBehaviour = GetComponent<CharacterMovementBehaviour>();
+        _movementBehaviour = GetComponent<Player>();
 
         InputManager.Instance.EventPlayerMovementDirectionChanged += OnPlayerMovementDirectionChanged;
     }

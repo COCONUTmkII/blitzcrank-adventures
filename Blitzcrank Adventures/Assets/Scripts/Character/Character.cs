@@ -4,7 +4,6 @@ namespace Blitzcrank.Character
 {
     public abstract class Character : Stats
     {
-
         public bool Immortel { get; set; }
         public bool IsAlive { get; set; }
         /// <summary>
