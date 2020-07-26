@@ -1,27 +1,28 @@
-using CharacterBehaviours.MainCharacter;
 using UnityEngine;
 
-namespace GameHandler
+#region Project namespace
+using Blitzcrank.Character.Player;
+#endregion
+/// <summary>
+/// This class is used for simple test cases of character stats and this class could be deleted or changed later
+/// </summary>
+
+namespace Blitzcrank.GeameHandler
 {
-    /// <summary>
-    /// This class is used for simple test cases of character stats and this class could be deleted or changed later
-    /// </summary>
     public class GameHandler : MonoBehaviour
     {
+        [SerializeField] private Player player = null; //Ignor
         private void Start()
         {
-            MainCharacter mainCharacter = new MainCharacter {Health = 30, Mana = 20, IsAlive = true};
-
-            Debug.Log("Health" + mainCharacter.Health);
-
-            mainCharacter.GetDamage(10);
+            ///<summary>
+            ///Simulate loading player parameters
+            ///</summary>
             
-            Debug.Log("Health" + mainCharacter.Health);
-
-            mainCharacter.HealBlitzcrank(10);
-            
-            Debug.Log("Health" + mainCharacter.Health);
-            
+            player.IsAlive = true;
+            player.Immortel = false;
+            player.RecoveryHealth(100);
+            player.RecoveryEnergy(30);
         }
     }
 }
+
