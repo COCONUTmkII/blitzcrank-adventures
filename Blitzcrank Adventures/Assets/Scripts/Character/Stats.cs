@@ -9,12 +9,15 @@ namespace Blitzcrank.Character
         [SerializeField] private int Energy = 0;
 
         #region Health
+        //The maximum number of character health points depending on his strength
+        //For example: one point of strength gives five points of character health
         public int MaxHealthPoints {
             get {
                 return Strength * 5;
             }
         }
-        public int CurentHealthPoints { get; set; }
+        //When initializing a character, restore his health to the required
+        public int CurrentHealthPoints { get; set; }
         #endregion
 
         #region Energy
@@ -23,7 +26,7 @@ namespace Blitzcrank.Character
                 return Energy * 2;
             }
         }
-        public int CurentEnergyPoints { get; set; }
+        public int CurrentEnergyPoints { get; set; }
         #endregion
     }
 }

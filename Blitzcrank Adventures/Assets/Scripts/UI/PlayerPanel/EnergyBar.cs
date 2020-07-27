@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace Blitzcrank.UI.Player.Panel
 {
-    public class EnergyBar : MonoBehaviour
+    public class EnergyBar : MonoBehaviour ,IBar
     {
         private Slider slider;
         private const string _DEFOUT_ENERGY_BAR_BORDER = "Sprite/UI/PlayerPanel/Border/Health_and_energy";
@@ -14,14 +14,6 @@ namespace Blitzcrank.UI.Player.Panel
             _icon = GetComponent<EnergyBar>().transform.Find("Border").GetComponent<Image>();
             slider = this.GetComponent<Slider>();
             SetPachToBorder("");
-        }
-        public void SetMaxEnergyPoint(int value)
-        {
-            slider.maxValue = value;
-        }
-        public void SetCurentEnergyPoint(int value)
-        {
-            slider.value = value;
         }
 
         //temporarily so
@@ -35,6 +27,16 @@ namespace Blitzcrank.UI.Player.Panel
             {
                 _icon.sprite = Resources.Load<Sprite>(customBorder);
             }
+        }
+
+        public void SetMaxPoint(int value)
+        {
+            slider.maxValue = value;
+        }
+
+        public void SetCurrentPoint(int value)
+        {
+            slider.value = value;
         }
     }
 }

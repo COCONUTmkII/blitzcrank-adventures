@@ -11,14 +11,14 @@ namespace Blitzcrank.Character
         /// </summary>
         public virtual void GetDamage(int damage)
         {
-            if ((CurentHealthPoints > damage && Immortel != true) && IsAlive != false)
+            if ((CurrentHealthPoints > damage && Immortel != true) && IsAlive != false)
             {
-                CurentHealthPoints -= damage; // We will decide implementation later
+                CurrentHealthPoints -= damage; // We will decide implementation later
                 Debug.Log("Character takes <color=red>" + damage + " damage</color> points.");
             }
-            else if (CurentHealthPoints <= damage)
+            else if (CurrentHealthPoints <= damage && IsAlive == true)
             {
-                CurentHealthPoints = 0;
+                CurrentHealthPoints = 0;
                 IsAlive = false;
                 Debug.Log("<color=red>CHARACTER DIED</color>.");
             }
@@ -30,16 +30,16 @@ namespace Blitzcrank.Character
         /// <param name="health">Heal amount</param>
         public virtual void RecoveryHealth(int health)
         {
-            if (CurentHealthPoints < MaxHealthPoints && IsAlive == true)
+            if (CurrentHealthPoints < MaxHealthPoints && IsAlive == true)
             {
-                if ((MaxHealthPoints - CurentHealthPoints) >= health)
+                if ((MaxHealthPoints - CurrentHealthPoints) >= health)
                 {
-                    CurentHealthPoints += health;
+                    CurrentHealthPoints += health;
                     Debug.Log("Character restore <color=green>" + health + " health</color> points.");
                 }
                 else
                 {
-                    CurentHealthPoints = MaxHealthPoints;
+                    CurrentHealthPoints = MaxHealthPoints;
                     Debug.Log("<color=green>Full health</color>.");
                 }
             }
@@ -47,9 +47,9 @@ namespace Blitzcrank.Character
 
         public virtual void EnergyExpended(int energy)
         {
-            if(CurentEnergyPoints > energy)
+            if(CurrentEnergyPoints > energy)
             {
-                CurentEnergyPoints -= energy;
+                CurrentEnergyPoints -= energy;
                 Debug.Log("<color=blue>" + energy + "energy point expended.");
             }
             else
@@ -61,16 +61,16 @@ namespace Blitzcrank.Character
 
         public virtual void RecoveryEnergy(int energy)
         {
-            if (CurentEnergyPoints < MaxEnergyPoints && IsAlive == true)
+            if (CurrentEnergyPoints < MaxEnergyPoints && IsAlive == true)
             {
-                if ((MaxEnergyPoints - CurentEnergyPoints) >= energy)
+                if ((MaxEnergyPoints - CurrentEnergyPoints) >= energy)
                 {
-                    CurentEnergyPoints += energy;
+                    CurrentEnergyPoints += energy;
                     Debug.Log("Character restore <color=blue>" + energy + " energy</color> points.");
                 }
                 else
                 {
-                    CurentEnergyPoints = MaxHealthPoints;
+                    CurrentEnergyPoints = MaxHealthPoints;
                     Debug.Log("<color=blue>Full enegy</color>.");
                 }
             }

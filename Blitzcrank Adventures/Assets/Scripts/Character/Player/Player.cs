@@ -40,25 +40,25 @@ namespace Blitzcrank.Character.Player
 
         public override void GetDamage(int damage){
             base.GetDamage(damage);
-            HealthPointsEvent(CurentHealthPoints);
+            HealthPointsEvent(CurrentHealthPoints);
         }
 
         public override void RecoveryHealth(int health)
         {
             base.RecoveryHealth(health);
-            HealthPointsEvent(CurentHealthPoints);
+            HealthPointsEvent(CurrentHealthPoints);
         }
 
         public override void EnergyExpended(int energy)
         {
             base.EnergyExpended(energy);
-            EnergyPointsEvent(CurentEnergyPoints);
+            EnergyPointsEvent(CurrentEnergyPoints);
         }
 
         public override void RecoveryEnergy(int energy)
         {
             base.RecoveryEnergy(energy);
-            EnergyPointsEvent(CurentEnergyPoints);
+            EnergyPointsEvent(CurrentEnergyPoints);
         }
     }
 }

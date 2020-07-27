@@ -15,8 +15,8 @@ namespace Blitzcrank.Manager
         [SerializeField] private EnergyBar energyBar = null;
         private void Start()
         {
-            healthBar.SetMaxHealthPoint(player.MaxHealthPoints);
-            energyBar.SetMaxEnergyPoint(player.MaxEnergyPoints);
+            healthBar.SetMaxPoint(player.MaxHealthPoints);
+            energyBar.SetMaxPoint(player.MaxEnergyPoints);
         }
         void OnEnable()
         {
@@ -30,11 +30,11 @@ namespace Blitzcrank.Manager
         }
         void HealthPoints(int value)
         {
-            healthBar.SetCurentHealthPoint(value);
+            healthBar.SetCurrentPoint(value);
         }
         void EnergyPoints(int value)
         {
-            energyBar.SetCurentEnergyPoint(value);
+            energyBar.SetCurrentPoint(value);
         }
     }
 }
