@@ -10,9 +10,8 @@ namespace Blitzcrank.UI.Player.Panel
         public void Awake()
         {
             _icon = GetComponent<PlayerIcon>().transform.Find("Icon").GetComponent<Image>();
-            //Test loading a character icon
+            //Test loading a character icon from UIManager? LoadManager
             SetPachToIcon("");
-
         }
         public void SetPachToIcon(string customIcon)
         {

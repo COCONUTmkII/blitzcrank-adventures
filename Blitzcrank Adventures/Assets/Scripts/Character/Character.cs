@@ -47,21 +47,24 @@ namespace Blitzcrank.Character
 
         public virtual void EnergyExpended(int energy)
         {
-            if(CurrentEnergyPoints > energy)
+            if(CurrentEnergyPoints > energy && IsAlive != false)
             {
                 CurrentEnergyPoints -= energy;
-                Debug.Log("<color=blue>" + energy + "energy point expended.");
+                Debug.Log("<color=blue>" + energy + " energy</color> point expended.");
             }
-            else
+            else if(CurrentEnergyPoints < energy && IsAlive == true)
             {
                 Debug.Log("<color=blue>Energy is too low</color>");
             }
-
+            else if(CurrentEnergyPoints == energy && IsAlive == true)
+            {
+                CurrentEnergyPoints = 0;
+            }
         }
 
         public virtual void RecoveryEnergy(int energy)
         {
-            if (CurrentEnergyPoints < MaxEnergyPoints && IsAlive == true)
+            if (CurrentEnergyPoints <= MaxEnergyPoints && IsAlive == true)
             {
                 if ((MaxEnergyPoints - CurrentEnergyPoints) >= energy)
                 {
@@ -70,11 +73,10 @@ namespace Blitzcrank.Character
                 }
                 else
                 {
-                    CurrentEnergyPoints = MaxHealthPoints;
+                    CurrentEnergyPoints = MaxEnergyPoints;
                     Debug.Log("<color=blue>Full enegy</color>.");
                 }
             }
-
         }
     }
 }

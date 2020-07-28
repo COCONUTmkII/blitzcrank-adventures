@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 namespace Blitzcrank.UI.Player.Panel
 {
-    public class EnergyBar : MonoBehaviour ,IBar
+    public class EnergyBar : MonoBehaviour, IBar
     {
         private Slider slider;
         private const string _DEFOUT_ENERGY_BAR_BORDER = "Sprite/UI/PlayerPanel/Border/Health_and_energy";
