@@ -20,11 +20,11 @@ namespace Blitzcrank.GameHandler
             player.Immortal = false;
             player.RecoveryHealth(100);
             player.RecoveryEnergy(30);
-            player.SetPassiveSkill(new HexteckBarrier());
-            player.SetFirstSkill(new Hook());
-            player.SetSecondSkill(new Overdrive());
-            player.SetThirdSkill(new PowerFist());
-            player.SetUltimateSkill(new StaticField());
+            player.SetPassiveSkill(new HexteckBarrier(5));
+            player.SetFirstSkill(new Hook(5));
+            player.SetSecondSkill(new Overdrive(6));
+            player.SetThirdSkill(new PowerFist(7));
+            player.SetUltimateSkill(new StaticField(20));
             player.PerformPassiveSkill();
             player.PerformFirstSkill();
             player.PerformSecondSkill();
