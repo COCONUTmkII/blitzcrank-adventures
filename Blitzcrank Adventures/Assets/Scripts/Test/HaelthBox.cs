@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+﻿using Blitzcrank.Character.Player;
+using UnityEngine;
 
 #region Project namespace
-using Blitzcrank.Character.Player;
+
 #endregion
 
 namespace Blitzcrank.Test

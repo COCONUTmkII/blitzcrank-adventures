@@ -1,5 +1,3 @@
-using System;
-using TMPro.EditorUtilities;
 using UnityEngine;
 
 namespace Blitzcrank.Character.Player
@@ -8,7 +6,6 @@ namespace Blitzcrank.Character.Player
     {
         public delegate void HealthPointsDelegate(int value);
         public static event HealthPointsDelegate HealthPointsEvent;
-
         public delegate void EnergyPointsDelegate(int value);
         public static event EnergyPointsDelegate EnergyPointsEvent;
 

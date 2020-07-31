@@ -1,8 +1,8 @@
-﻿using UnityEngine;
+﻿using Blitzcrank.Character.Player;
+using UnityEngine;
 
 #region Project name area
 using Blitzcrank.Common;
-using Blitzcrank.Character.Player;
 using Blitzcrank.UI.Player.Panel;
 #endregion
 
