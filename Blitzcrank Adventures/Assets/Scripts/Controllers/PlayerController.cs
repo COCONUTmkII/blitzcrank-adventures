@@ -1,11 +1,12 @@
-﻿using UnityEngine;
+﻿#region Project namespace
 
-#region Project namespace
-using Blitzcrank.Manager;
 using Blitzcrank.Character.Player;
+using Blitzcrank.Manager;
+using UnityEngine;
+
 #endregion
 
-namespace Blitzcrank.Controller
+namespace Controllers
 {
     public class PlayerController : MonoBehaviour
     {
