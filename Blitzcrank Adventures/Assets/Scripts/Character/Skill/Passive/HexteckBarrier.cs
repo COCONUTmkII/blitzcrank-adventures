@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Blitzcrank.Character.Skill.Passive
 {
     public class HexteckBarrier : IPassiveSkillBehavior
@@ -8,7 +10,7 @@ namespace Blitzcrank.Character.Skill.Passive
         
         public void UsePassiveSkill()
         {
-            throw new System.NotImplementedException();
+            Debug.Log("Passive is used");           
         }
     }
 }

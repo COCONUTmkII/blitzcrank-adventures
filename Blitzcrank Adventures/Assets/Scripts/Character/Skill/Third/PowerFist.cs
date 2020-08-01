@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Blitzcrank.Character.Skill.Third
 {
     public class PowerFist : IThirdSkillBehavior
@@ -8,7 +10,7 @@ namespace Blitzcrank.Character.Skill.Third
         
         public void UseThirdSkill()
         {
-            throw new System.NotImplementedException();
+            Debug.Log("PowerFist used");
         }
     }
 }

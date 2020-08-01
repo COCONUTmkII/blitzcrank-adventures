@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Blitzcrank.Character.Skill.Second
 {
     public class Overdrive : ISecondSkillBehavior
@@ -8,7 +10,7 @@ namespace Blitzcrank.Character.Skill.Second
         
         public void UseSecondSkill()
         {
-            throw new System.NotImplementedException();
+            Debug.Log("Overdrive is used");
         }
     }
 }

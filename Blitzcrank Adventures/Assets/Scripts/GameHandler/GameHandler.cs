@@ -25,11 +25,6 @@ namespace Blitzcrank.GameHandler
             player.SetSecondSkill(new Overdrive(6));
             player.SetThirdSkill(new PowerFist(7));
             player.SetUltimateSkill(new StaticField(20));
-            player.PerformPassiveSkill();
-            player.PerformFirstSkill();
-            player.PerformSecondSkill();
-            player.PerformThirdSkill();
-            player.PerformUltimateSkill();
         }
     }
 }

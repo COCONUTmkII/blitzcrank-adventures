@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Blitzcrank.Character.Skill.First
 {
     public class Hook : IFirstSkillBehavior
@@ -7,7 +9,7 @@ namespace Blitzcrank.Character.Skill.First
         public Hook(float cd) => Cooldown = cd;
         public void UseFirstSkill()
         {
-            throw new System.NotImplementedException();
+            Debug.Log("Used Hook skill");
         }
     }
 }

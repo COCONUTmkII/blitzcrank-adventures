@@ -1,3 +1,4 @@
+using Blitzcrank.Managers;
 using UnityEngine;
 
 namespace Blitzcrank.Character.Player
@@ -14,7 +15,8 @@ namespace Blitzcrank.Character.Player
         private Vector3 _targetMovementVelocity = Vector3.zero;
         private Vector3 _currentMovementVelocity;
         private Rigidbody _rigidBody;
-
+        private InputManager _inputManager;
+        
         void Start()
         {
             _rigidBody = GetComponent<Rigidbody>();
@@ -29,12 +31,12 @@ namespace Blitzcrank.Character.Player
         {
             _rigidBody.velocity = new Vector3(_currentMovementVelocity.x, _rigidBody.velocity.y, _currentMovementVelocity.z);
         }
-
+        
         public void ChangeCharacterMovementDirection(Vector3 targetDirection)
         {
             _targetMovementVelocity = targetDirection.normalized;
         }
-
+     
         public override void GetDamage(int damage){
             base.GetDamage(damage);
             HealthPointsEvent(CurrentHealthPoints);

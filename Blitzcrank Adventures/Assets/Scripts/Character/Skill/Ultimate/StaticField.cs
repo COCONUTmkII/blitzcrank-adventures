@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Blitzcrank.Character.Skill.Ultimate
 {
     public class StaticField : IUltimateSkillBehavior
@@ -8,7 +10,7 @@ namespace Blitzcrank.Character.Skill.Ultimate
         
         public void UseUltimateSkill()
         {
-            throw new System.NotImplementedException();
+            Debug.Log("Static Field used");
         }
     }
 }
