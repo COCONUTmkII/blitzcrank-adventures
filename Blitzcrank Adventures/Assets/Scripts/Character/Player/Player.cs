@@ -15,7 +15,6 @@ namespace Blitzcrank.Character.Player
         private Vector3 _targetMovementVelocity = Vector3.zero;
         private Vector3 _currentMovementVelocity;
         private Rigidbody _rigidBody;
-        private InputManager _inputManager;
         
         void Start()
         {

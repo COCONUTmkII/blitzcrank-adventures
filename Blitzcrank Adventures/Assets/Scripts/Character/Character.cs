@@ -1,4 +1,5 @@
 using Blitzcrank.Character.Skill;
+using Blitzcrank.Manager.Input;
 using UnityEngine;
 
 namespace Blitzcrank.Character
@@ -19,6 +20,12 @@ namespace Blitzcrank.Character
         
         public bool Immortal { get; set; }
         public bool IsAlive { get; set; }
+
+        private void OnEnable()
+        {
+            FirstSkillButton.FirstSkillEvent += PerformFirstSkill;
+        }
+
         /// <summary>
         /// Method which invoked when each character receive damage; 
         /// </summary>

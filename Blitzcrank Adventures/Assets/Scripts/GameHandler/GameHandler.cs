@@ -12,7 +12,7 @@ namespace Blitzcrank.GameHandler
 {
     public class GameHandler : MonoBehaviour
     {
-        [SerializeField] private Player player; //Ignore
+        [SerializeField] private Player player = null; //Ignore
         private void Start()
         {
             //Simulate loading player parameters

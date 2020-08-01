@@ -6,7 +6,7 @@ namespace Blitzcrank.Manager.Input
     {
         public override void Execute()
         {
-            player.PerformThirdSkill();
+            //player.PerformThirdSkill();
         }
     }
 }
