@@ -1,8 +1,8 @@
 ﻿using System;
+using Blitzcrank.Character.Player;
 using Blitzcrank.Manager.Input;
 using Managers.InputButtons;
 using UnityEngine;
-
 #region Project namespace
 using Blitzcrank.Common;
 #endregion
@@ -14,6 +14,7 @@ namespace Blitzcrank.Managers
         public Action<Vector3> eventPlayerMovementDirectionChanged; 
         private Vector3 _targetMovementVector = Vector3.zero;
         private Vector3 _newVelocity;
+        [SerializeField] private Player player; //TODO CHANGE THIS AFTER SOME TIME
         void Update()
         {
             HandleInput();
@@ -32,7 +33,7 @@ namespace Blitzcrank.Managers
                 if (Input.GetKeyDown(currentKeyCode))
                 {
                     InputCommand command = InputButtonListener.CheckInputButton(currentKeyCode);
-                    command.Execute();
+                    command.Execute(player);
                 }
             }
         }

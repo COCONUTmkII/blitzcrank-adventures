@@ -1,12 +1,13 @@
+using Blitzcrank.Character.Player;
 using Managers.InputButtons;
 
 namespace Blitzcrank.Manager.Input
 {
     public class ThirdSkillButton : InputCommand
     {
-        public override void Execute()
+        public override void Execute(Player player)
         {
-            //player.PerformThirdSkill();
+            player.PerformThirdSkill();
         }
     }
 }

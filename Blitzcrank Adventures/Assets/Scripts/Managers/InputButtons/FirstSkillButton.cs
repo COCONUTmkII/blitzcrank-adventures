@@ -1,17 +1,13 @@
-
-
+using Blitzcrank.Character.Player;
 using Managers.InputButtons;
 
 namespace Blitzcrank.Manager.Input
 {
     public class FirstSkillButton : InputCommand
     {
-        public delegate void FirstSkillDelegate();
-        public static event FirstSkillDelegate FirstSkillEvent;
-        public override void Execute()
+        public override void Execute(Player player)
         {
-            FirstSkillEvent();
-            //player.PerformFirstSkill();
+            player.PerformFirstSkill();
         }
     }
 }

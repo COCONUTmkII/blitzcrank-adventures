@@ -5,6 +5,7 @@ namespace Managers.InputButtons
 {
     public abstract class InputCommand : MonoBehaviour
     {
-       public abstract void Execute();
+        public abstract void Execute(Player player);
+
     }
 }
