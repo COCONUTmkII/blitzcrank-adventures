@@ -10,7 +10,15 @@ namespace Blitzcrank.Character.Skill.Passive
         
         public void UsePassiveSkill()
         {
-            Debug.Log("Passive is used");           
+            if (Cooldown > 0)
+            {
+                Debug.Log("Hextech Barrier is on a cooldown");
+            }
+            else
+            {
+                Debug.Log("Passive is used");
+                Cooldown = 10;
+            }
         }
     }
 }
