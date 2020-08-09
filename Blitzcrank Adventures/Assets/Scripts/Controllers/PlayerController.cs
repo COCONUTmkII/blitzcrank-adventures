@@ -1,7 +1,7 @@
 ﻿#region Project namespace
 
 using Blitzcrank.Character.Player;
-using Blitzcrank.Manager;
+using Blitzcrank.Managers;
 using UnityEngine;
 
 #endregion
@@ -14,14 +14,14 @@ namespace Controllers
         void Awake()
         {
             _movementBehaviour = GetComponent<Player>();
-            InputManager.Instance.EventPlayerMovementDirectionChanged += OnPlayerMovementDirectionChanged; 
+            InputManager.Instance.eventPlayerMovementDirectionChanged += OnPlayerMovementDirectionChanged; 
         }
 
         private void OnDestroy()
         {
             if (InputManager.TryInstance != null)
             {
-                InputManager.TryInstance.EventPlayerMovementDirectionChanged -= OnPlayerMovementDirectionChanged;
+                InputManager.TryInstance.eventPlayerMovementDirectionChanged -= OnPlayerMovementDirectionChanged;
             }
         }
 
