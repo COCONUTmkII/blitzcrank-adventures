@@ -12,13 +12,24 @@ namespace Blitzcrank.Character
         #region Skill Sets
         private IPassiveSkillBehavior _passiveSkill;
         private IFirstSkillBehavior _firstSkill;
-        private ISecondSkillBehavior _secondSkill;
+        private SecondSkillBehavior _secondSkill;
         private IThirdSkillBehavior _thirdSkill;
         private IUltimateSkillBehavior _ultimateSkill;
         #endregion
         
         public bool Immortal { get; set; }
         public bool IsAlive { get; set; }
+        
+        
+        private void OnEnable()
+        {
+            SecondSkillBehavior.SecondSkillEvent += PerformSecondSkill(10);
+        }
+
+        private void OnDisable()
+        {
+            
+        }
 
 
         /// <summary>
@@ -108,9 +119,9 @@ namespace Blitzcrank.Character
             _firstSkill.UseFirstSkill();
         }
 
-        public void PerformSecondSkill()
+        public virtual void PerformSecondSkill(float stat)
         {
-            _secondSkill.UseSecondSkill();
+            _secondSkill.UseSecondSkill(stat);
         }
 
         public void PerformThirdSkill()
@@ -118,7 +129,7 @@ namespace Blitzcrank.Character
             _thirdSkill.UseThirdSkill();
         }
 
-        public void PerformUltimateSkill()
+        public void PerformUltimateSkill(float stat)
         {
             _ultimateSkill.UseUltimateSkill();
         }
@@ -138,7 +149,7 @@ namespace Blitzcrank.Character
             _firstSkill = firstSkill;
         }
 
-        public void SetSecondSkill(ISecondSkillBehavior secondSkill)
+        public void SetSecondSkill(SecondSkillBehavior secondSkill)
         {
             _secondSkill = secondSkill;
         }
