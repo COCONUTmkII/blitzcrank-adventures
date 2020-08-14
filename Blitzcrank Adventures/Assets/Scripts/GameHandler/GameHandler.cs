@@ -27,14 +27,6 @@ namespace Blitzcrank.GameHandler
             player.SetThirdSkill(new PowerFist(7));
             player.SetUltimateSkill(new StaticField(0));
         }
-
-        private void Update()
-        {
-            if (player.CurrentHealthPoints < 30)
-            {
-                player.PerformPassiveSkill();
-            }
-        }
     }
 }
 
