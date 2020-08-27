@@ -1,3 +1,4 @@
+using System;
 using Blitzcrank.Character.Player;
 using Blitzcrank.Character.Skill.First;
 using Blitzcrank.Character.Skill.Passive;
@@ -24,7 +25,7 @@ namespace Blitzcrank.GameHandler
             player.SetFirstSkill(new Hook(5));
             player.SetSecondSkill(new Overdrive(6));
             player.SetThirdSkill(new PowerFist(7));
-            player.SetUltimateSkill(new StaticField(20));
+            player.SetUltimateSkill(new StaticField(0));
         }
     }
 }

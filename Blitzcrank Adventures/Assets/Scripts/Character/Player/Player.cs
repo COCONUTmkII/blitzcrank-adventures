@@ -24,6 +24,10 @@ namespace Blitzcrank.Character.Player
         {
             _currentMovementVelocity = Vector3.Lerp(
             _currentMovementVelocity, _targetMovementVelocity * _movementSpeed, _velocityChangeSpeed * Time.deltaTime);
+            if (CurrentHealthPoints < 30)
+            {
+                PerformPassiveSkill();
+            }
         }
 
         void FixedUpdate()

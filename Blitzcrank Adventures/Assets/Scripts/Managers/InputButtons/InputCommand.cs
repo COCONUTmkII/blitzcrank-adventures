@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Managers.InputButtons
 {
-    public abstract class InputCommand : MonoBehaviour
+    public abstract class InputCommand
     {
         public abstract void Execute(Player player);
 
