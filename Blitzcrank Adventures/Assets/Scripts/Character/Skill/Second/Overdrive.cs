@@ -10,7 +10,16 @@ namespace Blitzcrank.Character.Skill.Second
         
         public void UseSecondSkill()
         {
-            Debug.Log("Overdrive is used");
+            if (Cooldown > 0)
+            {
+                Debug.Log("Overdrive is on cooldown");
+            }
+            else
+            {
+                Debug.Log("Overdrive is used");
+                Cooldown = 5;
+                //FIXME change movement speed here.
+            }
         }
     }
 }
