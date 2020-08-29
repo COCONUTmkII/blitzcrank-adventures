@@ -23,7 +23,7 @@ namespace Blitzcrank.GameHandler
             player.RecoveryEnergy(30);
             player.SetPassiveSkill(new HexteckBarrier(5));
             player.SetFirstSkill(new Hook(5));
-            player.SetSecondSkill(new Overdrive(6));
+            player.SetSecondSkill(new Overdrive(1.0f));
             player.SetThirdSkill(new PowerFist(7));
             player.SetUltimateSkill(new StaticField(0));
         }

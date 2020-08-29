@@ -5,20 +5,20 @@ namespace Blitzcrank.Character.Skill.Second
     public class Overdrive : ISecondSkillBehavior
     {
         public float Cooldown { get; set; }
-
+        private float _timePassedAfterSkillUsed;
         public Overdrive(float cd) => Cooldown = cd;
         
         public void UseSecondSkill()
         {
-            if (Cooldown > 0)
+            _timePassedAfterSkillUsed += Time.deltaTime;
+            if (_timePassedAfterSkillUsed > Cooldown)
             {
-                Debug.Log("Overdrive is on cooldown");
+                Debug.Log("Overdrive is used");
+                _timePassedAfterSkillUsed = 0;
             }
             else
             {
-                Debug.Log("Overdrive is used");
-                Cooldown = 5;
-                //FIXME change movement speed here.
+                Debug.Log("Overdrive is on cooldown");
             }
         }
     }
