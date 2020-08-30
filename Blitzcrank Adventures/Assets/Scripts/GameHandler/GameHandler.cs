@@ -1,4 +1,5 @@
 using Blitzcrank.Character.Player;
+using Blitzcrank.Character.Skill;
 using Blitzcrank.Character.Skill.First;
 using Blitzcrank.Character.Skill.Passive;
 using Blitzcrank.Character.Skill.Second;
@@ -13,20 +14,26 @@ namespace Blitzcrank.GameHandler
     public class GameHandler : MonoBehaviour
     {
         [SerializeField] public Player player = null; //Ignore
+        private Cooldown _cooldown;
+
+        private void Awake()
+        {
+            GameObject cooldownGameObject = new GameObject("Cooldown");
+            _cooldown = cooldownGameObject.AddComponent<Cooldown>();
+        }
+
         private void Start()
         {
             //Simulate loading player parameters
             player.IsAlive = true;
             player.Immortal = false;
-
-
+            
             player.RecoveryHealth(100);
             player.RecoveryEnergy(30);
 
-
             player.SetPassiveSkill(new HexteckBarrier(5));
             player.SetFirstSkill(new Hook(5));
-            player.SetSecondSkill(new Overdrive(2));
+            player.SetSecondSkill(new Overdrive(_cooldown, 5));
             player.SetThirdSkill(new PowerFist(7));
             player.SetUltimateSkill(new StaticField(20));
         }

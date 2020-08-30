@@ -6,30 +6,38 @@ namespace Blitzcrank.Character.Skill.Second
 {
     public class Overdrive : ISecondSkillBehavior
     {
-        
-        public float overdriveCooldown = 15;
-        private float _timePassedAfterSkillUsed = 15;
-
+        public float TimePassedAfterUsedSkill { get; set; }
+        public float Cooldown { get; set; }
+        private Cooldown _cooldown;
+        public Overdrive(Cooldown cooldown, float cd)
+        {
+            _cooldown = cooldown;
+            _cooldown.SetSkillCooldown(cd);
+        }
         public int Level { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
         public (int time, List<StatsModifier> mod) UseSecondSkill()
         {
-            List<StatsModifier> statsListMod = new List<StatsModifier>();
-            Debug.Log(_timePassedAfterSkillUsed);
-            if (_timePassedAfterSkillUsed >= overdriveCooldown)
+            CheckIsSkillReady();
+            List<StatsModifier> statsListMod = new List<StatsModifier>
             {
-                Debug.Log(_timePassedAfterSkillUsed);
-                Debug.Log("Overdrive is used");
-                statsListMod.Add(new StatsModifier(Stat.Agility, 2, StatsModType.Flat));
-                statsListMod.Add(new StatsModifier(Stat.Strength, 5, StatsModType.Flat));
-                _timePassedAfterSkillUsed = 0;
+                new StatsModifier(Stat.Agility, 2, StatsModType.Flat),
+                new StatsModifier(Stat.Strength, 5, StatsModType.Flat)
+            };
+            return (time: 5, mod: statsListMod);
+        }
+
+        private void CheckIsSkillReady()
+        {
+            if (_cooldown.IsOnCooldown())
+            {
+                Debug.Log("Skill is on cooldown");
             }
             else
             {
-                Debug.Log("Overdrive is on cooldown");               
+                Debug.Log("Overdrive is used");
+                _cooldown.SetIsCooldown(true);
             }
-            _timePassedAfterSkillUsed += Time.deltaTime * 100;
-            return (time: 5, mod: statsListMod);
         }
     }
 }

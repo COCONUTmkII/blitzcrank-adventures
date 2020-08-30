@@ -1,3 +1,4 @@
+using System;
 using Blitzcrank.Character.Skill;
 using Blitzcrank.Character.Stats;
 using Blitzcrank.Managers;
@@ -23,6 +24,12 @@ namespace Blitzcrank.Character
         
         public bool Immortal { get; set; }
         public bool IsAlive { get; set; }
+
+        private void Update()
+        {
+            
+        }
+
 
         public virtual void GetDamage(int damage)
         {
