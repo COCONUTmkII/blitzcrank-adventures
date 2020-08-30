@@ -14,7 +14,7 @@ namespace Blitzcrank.Managers
         public Action<Vector3> eventPlayerMovementDirectionChanged; 
         private Vector3 _targetMovementVector = Vector3.zero;
         private Vector3 _newVelocity;
-        [SerializeField] private Player player; //TODO CHANGE THIS AFTER SOME TIME
+        [SerializeField] private Player player = null; //TODO CHANGE THIS AFTER SOME TIME
         void Update()
         {
             HandleInput();

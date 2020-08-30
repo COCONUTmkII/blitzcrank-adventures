@@ -1,5 +1,7 @@
+using System;
 using Blitzcrank.Managers;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Blitzcrank.Character.Player
 {
@@ -9,9 +11,7 @@ namespace Blitzcrank.Character.Player
         public static event HealthPointsDelegate HealthPointsEvent;
         public delegate void EnergyPointsDelegate(int value);
         public static event EnergyPointsDelegate EnergyPointsEvent;
-
-        [SerializeField] private float _movementSpeed = 15f;
-        [SerializeField] private float _velocityChangeSpeed = 15f;
+        [SerializeField] private float velocityChangeSpeed = 15f;
         private Vector3 _targetMovementVelocity = Vector3.zero;
         private Vector3 _currentMovementVelocity;
         private Rigidbody _rigidBody;
@@ -23,11 +23,7 @@ namespace Blitzcrank.Character.Player
         void Update()
         {
             _currentMovementVelocity = Vector3.Lerp(
-            _currentMovementVelocity, _targetMovementVelocity * _movementSpeed, _velocityChangeSpeed * Time.deltaTime);
-            if (CurrentHealthPoints < 30)
-            {
-                PerformPassiveSkill();
-            }
+            _currentMovementVelocity, _targetMovementVelocity * MaxMovementSpeed, velocityChangeSpeed * Time.deltaTime);
         }
 
         void FixedUpdate()

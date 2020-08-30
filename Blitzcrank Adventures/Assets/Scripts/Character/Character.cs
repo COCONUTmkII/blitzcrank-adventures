@@ -1,9 +1,13 @@
 using Blitzcrank.Character.Skill;
+using Blitzcrank.Character.Stats;
+using Blitzcrank.Managers;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Blitzcrank.Character
 {
-    public abstract class Character : Stats
+    public abstract class Character : CheracterStats
     {
         /// <summary>
         /// This region represents skills of characters that will use them.
@@ -20,12 +24,9 @@ namespace Blitzcrank.Character
         public bool Immortal { get; set; }
         public bool IsAlive { get; set; }
 
-
-        /// <summary>
-        /// Method which invoked when each character receive damage; 
-        /// </summary>
         public virtual void GetDamage(int damage)
         {
+            
             if ((CurrentHealthPoints > damage && Immortal != true) && IsAlive)
             {
                 CurrentHealthPoints -= damage; // We will decide implementation later
@@ -38,11 +39,7 @@ namespace Blitzcrank.Character
                 Debug.Log("<color=red>CHARACTER DIED</color>.");
             }
         }
-        /// <summary>
-        /// Heals main character to some amount.
-        /// Maybe we will change this method destination because Bosses could heal too.
-        /// </summary>
-        /// <param name="health">Heal amount</param>
+
         public virtual void RecoveryHealth(int health)
         {
             if (CurrentHealthPoints < MaxHealthPoints && IsAlive)
@@ -107,10 +104,17 @@ namespace Blitzcrank.Character
         {
             _firstSkill.UseFirstSkill();
         }
-
+        //TODO: Hmmmm coroutines and tuples
         public void PerformSecondSkill()
         {
-            _secondSkill.UseSecondSkill();
+            StartCoroutine(SecondSkill(_secondSkill.UseSecondSkill()));
+        }
+
+        private IEnumerator SecondSkill((int time, List<StatsModifier> mod) p)
+        {
+            AddStats(p.mod);
+            yield return new WaitForSeconds(p.time);
+            RemoveStats(p.mod);
         }
 
         public void PerformThirdSkill()

@@ -1,4 +1,3 @@
-using System;
 using Blitzcrank.Character.Player;
 using Blitzcrank.Character.Skill.First;
 using Blitzcrank.Character.Skill.Passive;
@@ -19,13 +18,17 @@ namespace Blitzcrank.GameHandler
             //Simulate loading player parameters
             player.IsAlive = true;
             player.Immortal = false;
+
+
             player.RecoveryHealth(100);
             player.RecoveryEnergy(30);
+
+
             player.SetPassiveSkill(new HexteckBarrier(5));
             player.SetFirstSkill(new Hook(5));
-            player.SetSecondSkill(new Overdrive(1.0f));
+            player.SetSecondSkill(new Overdrive(2));
             player.SetThirdSkill(new PowerFist(7));
-            player.SetUltimateSkill(new StaticField(0));
+            player.SetUltimateSkill(new StaticField(20));
         }
     }
 }
