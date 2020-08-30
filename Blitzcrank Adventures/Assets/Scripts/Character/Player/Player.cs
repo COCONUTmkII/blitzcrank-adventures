@@ -58,12 +58,6 @@ namespace Blitzcrank.Character.Player
             base.RecoveryEnergy(energy);
             EnergyPointsEvent(CurrentEnergyPoints);
         }
-
-        public override void PerformSecondSkill()
-        {
-            base.PerformSecondSkill();
-            
-        }
     }
 }
 

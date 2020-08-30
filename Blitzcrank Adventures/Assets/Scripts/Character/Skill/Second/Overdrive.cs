@@ -1,27 +1,35 @@
+using Blitzcrank.Character.Stats;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Blitzcrank.Character.Skill.Second
 {
-    public class Overdrive : SecondSkillBehavior
+    public class Overdrive : ISecondSkillBehavior
     {
-        [SerializeField] private Stats _stats;
-        public float Cooldown { get; set; }
-        public Overdrive(float cd) => Cooldown = cd;
         
-        public override void UseSecondSkill()
+        public float overdriveCooldown = 15;
+        private float _timePassedAfterSkillUsed = 15;
+
+        public int Level { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+
+        public (int time, List<StatsModifier> mod) UseSecondSkill()
         {
-            Debug.Log("Cooldown of OVERDRIVE IS " + Cooldown);
-            if (Cooldown > 0)
+            List<StatsModifier> statsListMod = new List<StatsModifier>();
+            Debug.Log(_timePassedAfterSkillUsed);
+            if (_timePassedAfterSkillUsed >= overdriveCooldown)
             {
-                Debug.Log("Overdrive is on cooldown");
+                Debug.Log(_timePassedAfterSkillUsed);
+                Debug.Log("Overdrive is used");
+                statsListMod.Add(new StatsModifier(Stat.Agility, 2, StatsModType.Flat));
+                statsListMod.Add(new StatsModifier(Stat.Strength, 5, StatsModType.Flat));
+                _timePassedAfterSkillUsed = 0;
             }
             else
             {
-                Debug.Log("Overdrive is used");
-                _stats.CurrentMovementSpeed = 10;      
-                Debug.Log("Movement speed increased to" + _stats.CurrentMovementSpeed);
-                Cooldown = 5;
+                Debug.Log("Overdrive is on cooldown");               
             }
+            _timePassedAfterSkillUsed += Time.deltaTime * 100;
+            return (time: 5, mod: statsListMod);
         }
     }
 }

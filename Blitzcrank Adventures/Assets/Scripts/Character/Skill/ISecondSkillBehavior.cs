@@ -1,17 +1,11 @@
+using Blitzcrank.Character.Stats;
+using System.Collections.Generic;
+
 namespace Blitzcrank.Character.Skill
 {
-    public abstract class SecondSkillBehavior
+    public interface ISecondSkillBehavior
     {
-       float Cooldown { get; set; }
-       public delegate void SecondSkillDelegate(float value);
-
-       public static event SecondSkillDelegate SecondSkillEvent;
-
-       public virtual void UseSecondSkill(float stat)
-       {
-           SecondSkillEvent(stat);
-       }
-       
-       
+        int Level { get; set; }
+        (int time, List<StatsModifier> mod) UseSecondSkill();
     }
 }
