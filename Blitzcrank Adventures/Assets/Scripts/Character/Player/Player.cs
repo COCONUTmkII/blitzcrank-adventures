@@ -1,5 +1,6 @@
 using System;
 using Blitzcrank.Managers;
+using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -15,7 +16,9 @@ namespace Blitzcrank.Character.Player
         private Vector3 _targetMovementVelocity = Vector3.zero;
         private Vector3 _currentMovementVelocity;
         private Rigidbody _rigidBody;
-        
+        float rotationSpeed = 0.5f;
+
+
         void Start()
         {
             _rigidBody = GetComponent<Rigidbody>();
@@ -29,10 +32,12 @@ namespace Blitzcrank.Character.Player
         void FixedUpdate()
         {
             _rigidBody.velocity = new Vector3(_currentMovementVelocity.x, _rigidBody.velocity.y, _currentMovementVelocity.z);
+            _rigidBody.transform.forward += new Vector3(_currentMovementVelocity.x, _rigidBody.velocity.y, _currentMovementVelocity.z);
         }
         
         public void ChangeCharacterMovementDirection(Vector3 targetDirection)
         {
+            
             _targetMovementVelocity = targetDirection.normalized;
         }
      

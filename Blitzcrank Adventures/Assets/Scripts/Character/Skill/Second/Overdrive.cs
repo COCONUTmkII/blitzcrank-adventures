@@ -18,26 +18,19 @@ namespace Blitzcrank.Character.Skill.Second
 
         public (int time, List<StatsModifier> mod) UseSecondSkill()
         {
-            CheckIsSkillReady();
-            List<StatsModifier> statsListMod = new List<StatsModifier>
-            {
-                new StatsModifier(Stat.Agility, 2, StatsModType.Flat),
-                new StatsModifier(Stat.Strength, 5, StatsModType.Flat)
-            };
-            return (time: 5, mod: statsListMod);
-        }
-
-        private void CheckIsSkillReady()
-        {
+            List<StatsModifier> statsListMod = new List<StatsModifier>();
             if (_cooldown.IsOnCooldown())
             {
                 Debug.Log("Skill is on cooldown");
             }
             else
             {
-                Debug.Log("Overdrive is used");
+                statsListMod.Add(new StatsModifier(Stat.Agility, 2, StatsModType.Flat));
                 _cooldown.SetIsCooldown(true);
+                Debug.Log("Overdrive is used");
+                return (time: 5, mod: statsListMod);
             }
+            return (time: 0, mod: statsListMod);
         }
     }
 }

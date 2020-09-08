@@ -119,9 +119,12 @@ namespace Blitzcrank.Character
 
         private IEnumerator SecondSkill((int time, List<StatsModifier> mod) p)
         {
-            AddStats(p.mod);
-            yield return new WaitForSeconds(p.time);
-            RemoveStats(p.mod);
+            if (p.time != 0)
+            {
+                AddStats(p.mod);
+                yield return new WaitForSeconds(p.time);
+                RemoveStats(p.mod);
+            }
         }
 
         public void PerformThirdSkill()
